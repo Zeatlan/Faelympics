@@ -1,0 +1,128 @@
+{% extends "admin/pages/skeleton.html.twig" %}
+
+{% block title "Vos disciplines" %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/admin/discipline.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <h2>Vos disciplines</h2>
+
+        {% for discipline in disciplines %}
+            <div class="col-xl-4 col-lg-6 col-md-6 discipline">
+                <div class="col-lg-12 text-center" style="background:linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url('{{ discipline.banner }}') center no-repeat;height:100px;background-size:cover;">
+                    <h1>{{ discipline.game }}</h1>
+                </div>
+                    {% if discipline.finished == 0 %}
+                        <div class="row action">
+                            <div class="col-3 text-center p-1">
+                                <a href="{{ path('discipline_edit', {id: discipline.id}) }}">Modifier</a>
+                            </div>
+                            <div class="col-6 text-center p-1">
+                                {{ discipline.startdate|date("d/m/y") }}
+                            </div>
+                            <div class="col-3 text-center p-1">
+                                <a href="{{ path('discipline_gestion', {id: discipline.id}) }}">Gérer</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="col-12 text-center p-1">
+                            <strong style="color:#49a82f">C L E A R E D</strong>
+                        </div>
+                    {% endif %}
+            </div>
+        {% endfor %}
+
+    </div>
+
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        <div class="row">
+            <h2>Les disciplines</h2>
+
+            {% for discipline in allDisciplines %}
+                <div class="col-xl-4 col-lg-6 col-md-6 mr-1 discipline">
+                    <div class="row">
+                        <div class="col-lg-12 text-center" style="background:linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url('{{ discipline.banner }}') center no-repeat;height:100px;background-size:cover;">
+                            <h1>{{ discipline.game }}</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 bg-dark text-center">{{ discipline.organisateur }}</div>
+                        <div class="col-lg-5 bg-dark ml-auto text-center p-1">
+                            {% if discipline.finished == 0 %}
+                                {{ discipline.startdate|date("d/m/y") }} <br>
+                                <a href="{{ path('discipline_edit', {id: discipline.id}) }}">(Modifier)</a><a
+                                    href="{{ path('discipline_gestion', {id: discipline.id}) }}">(Gérer)</a>
+                            {% else %}
+                                <strong style="color:#49a82f">C L E A R E D</strong>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <h2>Créer discipline</h2>
+        <div class="col-lg-3">
+            {# admin/pages/disciplinelist.html.twig #}
+            {{ form_start(new_discipline) }}
+            {{ form_row(new_discipline.game) }}
+            <div class="row">
+                <div class="col-lg-6">
+                    {{ form_row(new_discipline.format) }}
+                </div>
+                <div class="col-lg-6">
+                    {{ form_row(new_discipline.start_date) }}
+
+                </div>
+            </div>
+            {{ form_row(new_discipline.banner) }}
+            <input type="hidden" name="discipline[organisateur]" value="{{ current_user }}">
+            {{ form_row(new_discipline.default) }}
+            {{ form_row(new_discipline.coeff) }}
+            {{ form_row(new_discipline.streamed) }}
+            {{ form_row(new_discipline.description) }}
+            {{ form_end(new_discipline) }}
+        </div>
+
+        <div class="col-lg-4 ml-4 previewdiscipline">
+            <div class="col-lg-12 text-center background" style="background:linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url('{{ asset('img/default.jpg') }}') center no-repeat;height:100px;background-size:cover;">
+                <h1>Titre du jeu</h1>
+            </div>
+            <div class="col-lg-5 bg-dark ml-auto text-center p-1 startdate">{{ "now"|date("d/m/Y") }}</div>
+
+            <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+                <strong>Note</strong> Les valeurs sont dynamiques, changez d'abord le preview ladder avant de changer les points (default + coefficient)
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-lg-4 ml-4 ladderpreview">
+            <h3>Preview Ladder</h3>
+            <label for="num_player">Nombre de joueurs : </label>
+            <input type="number" name="num_player" class="num_player" placeholder="Nombre de joueurs" value="0">
+            <table class="table previewtable">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Points FAE gagnés</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="{{ asset('js/admin_discipline.js') }}"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+{% endblock %}

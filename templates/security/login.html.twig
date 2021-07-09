@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Administration{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/admin/global.css') }}">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<style>
+    html, body{
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 1) 98%), url('{{ asset('img/connexion_background.jpg') }}') center no-repeat;
+        background-size: cover;
+    }
+
+    .connexion {
+        background: rgba(13, 13, 13, 0.8);
+    }
+
+    .connexion input {
+        background: linear-gradient(to right, #5f66a3 50%, #404040 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all .5s ease-out;
+        border: 1px solid #1b1b1b;
+    }
+    .connexion input::placeholder {
+        color: #777fc6;
+    }
+    .connexion input:-webkit-autofill:focus,
+    .connexion input:-webkit-autofill,
+    .connexion input:-webkit-autofill:hover{
+        -webkit-text-fill-color: #777fc6;
+        -webkit-box-shadow: 0 0 0px 1000px #404040 inset;
+    }
+
+    .connexion input:focus::placeholder {
+        color: #d7d7d7;
+    }
+    .connexion input:focus {
+        background-position: left bottom;
+        color: #d7d7d7;
+    }
+</style>
+
+<div class="col-xl-3 col-lg-5 col-md-6 col-sm-12 m-auto connexion">
+    <div class="row">
+        <h1>Connexion</h1>
+    </div>
+    <div class="col-lg-10 m-auto pb-3">
+        <form method="POST">
+            <div class="form-group">
+                <label for="inputUsername">Nom d'utilisateur</label>
+                <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Nom d'utilisateur" value="{{ last_username }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword">Mot de passe</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            {% if error %}
+                <span class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+            {% endif %}
+
+            <div class="col-4 ml-auto">
+                <button type="submit" class="btn btn-primary">Connexion</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

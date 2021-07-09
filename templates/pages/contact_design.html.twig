@@ -1,0 +1,206 @@
+{% extends "base.html.twig" %}
+
+{% block title "Faelivrin - Contactez-nous" %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron listdiscipline">
+        <div class="row teamu">
+            <div class="col-xl-3 col-lg-6 column" style="border: 1px solid gray">
+                <!--<h1 class="text-center mt-3">Faelivrin</h1>-->
+                <img src="{{ asset('img/faelivrin.png') }}" alt="Faelivrin generale" width="100%" height="128" class="icon">
+
+                <!-- Sa seigneurie, Zeatlan, premier du nom -->
+                <div class="row mt-5 ml-auto mr-auto">
+                    <div class="col-xl-3 col-md-3 col-3" style="background:url({{ asset('img/avatar/zeatlan.jpg') }}) center no-repeat; background-size: cover;">
+                    </div>
+                    <div class="col-xl-5 col-md-5 col-5">
+                        <h3>Zeatlan</h3>
+                        <span>Sa seigneurie</span>
+                        <div class="roles mt-2">
+                            <img src="{{ asset('img/icon/elesis.png') }}" title="Organisateur de l'événement" alt="global" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/wc3.png') }}"
+                                 title="Organisateur Warcraft III" alt="wc3" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/love.png') }}"
+                                 title="Lovu <3" alt="amour" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 col-4 discordo">
+                        <p>Zeatlan#0727</p>
+                    </div>
+                </div>
+
+                <!-- Son adorable princesse, nalo_ -->
+                <div class="row mt-5 ml-auto mr-auto">
+                    <div class="col-3" style="background:url({{ asset('img/avatar/nalo.jpg') }}) center no-repeat; background-size: cover;">
+                    </div>
+                    <div class="col-5">
+                        <h3>nalo_</h3>
+                        <span>Princesse</span>
+                        <div class="roles mt-2">
+                            <img src="{{ asset('img/icon/bot.png') }}"
+                                 title="Créateur et gérant du bot 'Alfred'" alt="Bot" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/love.png') }}"
+                                 title="Lovu <3" alt="amour" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                        </div>
+                    </div>
+                    <div class="col-4 discordo">
+                        <p>nalo_#3437</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 column" style="border: 1px solid #611980">
+                <img src="{{ asset('img/voidtravelers.png') }}" alt="Void Travelers" width="128" height="128" class="icon">
+
+                <!-- Le puissant et fidèle bras droit des Void Travelers, Byakuran -->
+                <div class="row mt-5 ml-auto mr-auto">
+                    <div class="col-3" style="background:url('{{ asset('img/avatar/byakuran.jpg') }}') center no-repeat; background-size: cover;">
+                    </div>
+                    <div class="col-5">
+                        <h3>Byakuran</h3>
+                        <span>Duc des Void Travelers</span>
+                        <div class="roles mt-2">
+                            <img src="{{ asset('img/icon/cs.png') }}"
+                                 title="Organisateur Counter Strike" alt="Counter Strike" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/trackmania.png') }}"
+                                 title="Organisateur Track Mania" alt="Track mania" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/dota.png') }}"
+                                 title="Organisateur Dota" alt="Dota" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                        </div>
+                    </div>
+                    <div class="col-4 discordo">
+                        <p>Byakuran#3038</p>
+                    </div>
+                </div>
+
+                <!-- Le valeureux et courageux, Berni -->
+                <div class="row mt-5 ml-auto mr-auto">
+                    <div class="col-3" style="background:url('{{ asset('img/avatar/berni.jpg') }}') center no-repeat; background-size: cover;">
+                    </div>
+                    <div class="col-5">
+                        <h3>Berni</h3>
+                        <span>Marquis des Void Travelers</span>
+                        <div class="roles mt-2">
+                            <img src="{{ asset('img/icon/osu.png') }}"
+                                 title="Organisateur Osu!" alt="Osu" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/foot.png') }}"
+                                 title="Comme une envie de pied ..." alt="Pied" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                        </div>
+                    </div>
+                    <div class="col-4 discordo">
+                        <p>Berni#8538</p>
+                    </div>
+                </div>
+
+                <!-- La charmante et éloquante, Shiloli -->
+                <div class="row mt-5 ml-auto mr-auto">
+                    <div class="col-3" style="background:url('{{ asset('img/avatar/shinori.jpg') }}') center no-repeat; background-size: cover;">
+                    </div>
+                    <div class="col-5">
+                        <h3>Shinori</h3>
+                        <span>Messagère</span>
+                        <div class="roles mt-2">
+                            <img src="{{ asset('img/icon/tetris.png') }}"
+                                 title="Organisatrice Tetris" alt="Tetris" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/twitch.png') }}"
+                                 title="StreaMEUZE" alt="Twitch streamer" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                        </div>
+                    </div>
+                    <div class="col-4 discordo">
+                        <p>shinori#1379</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 column" style="border: 1px solid #ff8f41">
+                <img src="{{ asset('img/kazoku.png') }}" alt="Kazoku" width="128" height="128" class="icon">
+
+                <!-- Le mystérieux et ténébreux, ZelphiX -->
+                <div class="row mt-5 ml-auto mr-auto">
+                    <div class="col-3" style="background:url('{{ asset('img/avatar/zelphix.jpg') }}') center no-repeat; background-size: cover;">
+                    </div>
+                    <div class="col-5">
+                        <h3>ZelphiX</h3>
+                        <span>Duc des Kazoku</span>
+                        <div class="roles mt-2">
+                            <img src="{{ asset('img/icon/minecraft.png') }}"
+                                 title="Organisateur Minecraft" alt="Minecraft" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/twitch.png') }}"
+                                 title="Streamer" alt="Twitch streamer" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                        </div>
+                    </div>
+                    <div class="col-4 discordo">
+                        <p>ZelphiX#1781</p>
+                    </div>
+                </div>
+
+                <!-- L'amusant et chaleureux, Chang Xu Lao Ping -->
+                <div class="row mt-5 ml-auto mr-auto">
+                    <div class="col-3" style="background:url('{{ asset('img/avatar/cxlp.jpg') }}') center no-repeat; background-size: cover;">
+                    </div>
+                    <div class="col-5">
+                        <h3>CXLP</h3>
+                        <span>Marquis des Kazoku</span>
+                        <div class="roles mt-2">
+                            <img src="{{ asset('img/icon/lol.png') }}"
+                                 title="Organisateur League of Legends" alt="League of legends" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/twitch.png') }}"
+                                 title="StreaMEUZE~ >w<" alt="Twitch streamer" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/slurp.png') }}"
+                                 title="-_-" alt="maitre lee pang" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                        </div>
+                    </div>
+                    <div class="col-4 discordo">
+                        <p>CXLP#7441</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 column" style="border: 1px solid #009b9b">
+                <img src="{{ asset('img/fukyulegacy.png') }}" alt="Fukyu Legacy" width="128" height="128" class="icon">
+
+                <!-- Le chevalier et pourfendeur de demoiselles, Okplabs -->
+                <div class="row mt-5 ml-auto mr-auto">
+                    <div class="col-3" style="background:url('{{ asset('img/avatar/papayapa.jpg') }}') center no-repeat; background-size: cover;">
+                    </div>
+                    <div class="col-5">
+                        <h3>Okplabs</h3>
+                        <span>Duc de la Fukyu Legacy</span>
+                        <div class="roles mt-2">
+                            <img src="{{ asset('img/icon/hearthstone.png') }}"
+                                 title="Organisateur Hearthstone" alt="Hearthstone" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/dakismile.png') }}"
+                                 title="Good, but not the best" alt="Dakismile" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                        </div>
+                    </div>
+                    <div class="col-4 discordo">
+                        <p>Papayapa#8068</p>
+                    </div>
+                </div>
+
+                <!-- Le bouclier des g@m3rz, Cyriod -->
+                <div class="row mt-5 ml-auto mr-auto">
+                    <div class="col-3" style="background:url('{{ asset('img/avatar/cyriod.jpg') }}') center no-repeat; background-size: cover;">
+                    </div>
+                    <div class="col-5">
+                        <h3>Cyriod</h3>
+                        <span>Baron de la Fukyu Legacy</span>
+                        <div class="roles mt-2">
+                            <img src="{{ asset('img/icon/lor.png') }}"
+                                 title="Organisateur Legend of Runeterra" alt="LoR" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/twitch.png') }}"
+                                 title="Streamer" alt="Twitch streamer" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                            <img src="{{ asset('img/icon/Gamerz.png') }}"
+                                 title="Elite du G@m1ngZ" alt="G@m3rz confirmed" width="42" height="42" style="border: 1px solid white; border-radius:100%">
+                        </div>
+                    </div>
+                    <div class="col-4 discordo">
+                        <p>Cyriod#2464</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

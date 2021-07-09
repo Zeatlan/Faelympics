@@ -1,0 +1,120 @@
+{% extends "base.html.twig" %}
+
+{% block title "Faelivrin - Epreuve" %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/discipline.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron listdiscipline">
+        <div class="ml-auto mr-auto col-xl-8 suppanel">
+            <div class="row">
+                <div class="col-lg-10 panel">
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-7 col-md-7 col-11 header" style="background:linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url('{{ discipline.banner }}') center no-repeat;background-size:cover">
+                            <h1>{{ discipline.game }}</h1>
+                        </div>
+                        <div class="col-xl-3 col-lg-5 col-sm-8 organisateur">
+                            <img src="{{ asset(organisateur.avatar) }}" alt="{{ organisateur.username }} pp">
+                            <div>
+                                <h4>{{ organisateur.username }}</h4>
+                                <i>{{ organisateur.tag }}</i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-11 countdown">
+                            <h2>{{ discipline.startDate|localizeddate('full', 'full', 'fr_FR', 'Europe/Paris', 'EEEE d MMMM Y') }}</h2>
+                        </div>
+                    </div>
+
+                    <div class="row content" id="format">
+                        <div class="col-lg-12">
+                            {% autoescape %}
+                                {{ discipline.description|raw }}
+                            {% endautoescape %}
+                        </div>
+
+                        {% if discipline.streamed == true %}
+                            {% set color = "#ff415c" %}
+                            {% set text = 'Evénement streamé !' %}
+                        {% else %}
+                            {% set color = "#b39e9d" %}
+                            {% set text = 'Evénement non streamé' %}
+
+                        {% endif %}
+                        <div class="row col-lg-12 ml-auto text-right">
+                            <div class="col-lg-6 ml-auto">
+                                <a href="http://twitch.tv" style="color:{{ color }};text-decoration:none;font-weight:500;font-family:'Montserrat'">
+                                    <div class="row">
+                                        <div class="col-lg-12 p-3">
+                                            <img src="https://seeklogo.com/images/T/twitch-logo-4931D91F85-seeklogo.com.png" width="24" height="24" alt="Twitch streaming"> {{ text }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row content" id="classement" style="display:none">
+                        <div class="col-lg-12">
+                            <table class="table" style="color:#fafafa">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">
+                                        {% if discipline.format == 'TeamVSTeam' %}
+                                            Nom de team
+                                        {% else %}
+                                            Pseudo
+                                        {% endif %}
+                                    </th>
+                                    {% if discipline.format != 'TeamVSTeam' %}
+                                        <th scope="col">Faction</th>
+                                    {% endif %}
+                                    <th scope="col">Points FAE</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% set i = 1 %}
+                                {% set count = maxPlayers %}
+                                {% for player in players %}
+                                    <tr>
+                                        {% set pts = (count * discipline.coeff)+discipline.default %}
+                                        {% set count = count - 1%}
+                                        <th scope="row">{{ i }}</th>
+                                        <td>
+                                            {% autoescape %}
+                                                {% if discipline.format == 'TeamVSTeam' %}
+                                                    {{ player.name }}
+                                                {% else %}
+                                                    {{ player.Players }}
+                                                {% endif %}
+                                            {% endautoescape %}
+                                        </td>
+                                        {% if discipline.format != 'TeamVSTeam' %}
+                                            <td>
+                                                {{ player.Players.pfaction }}
+                                            </td>
+                                        {% endif %}
+                                        <td>{{ pts|number_format(0) }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 tabs">
+                    <button class="tablinks active" onclick="openTab(event, 'format')">Information</button>
+                    <button class="tablinks {%  if discipline.finished == 0 %}denied{% endif %}" {% if discipline.finished == 1 %}onclick="openTab(event, 'classement')"{% endif %}>Classement</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/discipline.js"></script>
+{% endblock %}

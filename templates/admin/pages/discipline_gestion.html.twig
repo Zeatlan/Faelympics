@@ -1,0 +1,160 @@
+{% extends "admin/pages/skeleton.html.twig" %}
+
+{% block title "Gestion - " ~ discipline.game %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/admin/discipline.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <h1>GESTION::{{ discipline.game ~" - "~ discipline.organisateur }}</h1>
+
+    {% if discipline.format == '1v1' or discipline.format == 'FFA' %}
+        {% set name = "joueur" %}
+        {% set table = "p_pseudo" %}
+    {% else %}
+        {% set name = "team" %}
+        {% set table = "name" %}
+    {% endif %}
+
+    <div class="row">
+        <h2>Inscription de {{ name }}</h2>
+    </div>
+    {{ form_start(inscription) }}
+    <div class="row">
+        <div class="col-2">
+            {% if discipline.format == '1v1' or discipline.format == 'FFA' %}
+                {{ form_label(inscription.p_pseudo) }}
+            {% else %}
+                {{ form_label(inscription.name) }}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            {% if discipline.format == '1v1' or discipline.format == 'FFA' %}
+                {{ form_widget(inscription.p_pseudo) }}
+            {% else %}
+                {{ form_widget(inscription.name) }}
+            {% endif %}
+        </div>
+        <div class="col-xl-1 col-2">
+            {% if discipline.finished == 0 %}
+                {{ form_row(inscription.save) }}
+            {% else %}
+                {{ form_row(inscription.save, {'disabled': 'disabled'}) }}
+            {% endif %}
+        </div>
+        <div class="col-xl-1 col-2">
+            {% if discipline.finished == 0 %}
+                {{ form_row(inscription.desinscrire) }}
+            {% else %}
+                {{ form_row(inscription.desinscrire, {'disabled': 'disabled'}) }}
+            {% endif %}
+        </div>
+    </div>
+    {{ form_end(inscription) }}
+
+    <div class="row">
+        <h2>Gestion de la discipline</h2>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-lg-6 col-md-6 col-12 co ml-auto mr-auto mt-3">
+            {% if discipline.finished == 1 %} {% set color = "#735d62" %} {% else %} {% set color = "#ff333b" %} {% endif %}
+            <button class="btn btn-primary finish" style="background-color:{{ color }};border:#ba152c" {% if discipline.finished == 1 %} disabled="disabled" {% endif %}>Terminer la discipline</button>
+            <div class="row">
+                <div class="row col-md-11 ml-1 mt-3 header" style="background-color:#3b404c">
+                    <h1>Classement final</h1>
+                    <p style="text-align: justify;"><i>Ceci est le classement final de votre discipline, retenez bien que une fois votre choix confirmé vous ne pourrez plus retourner en arrière !</i></p>
+                </div>
+                <ul id="row" class="list-group col-lg-12">
+                    {% set i = 1 %}
+                    {% set count = maxPlayers %}
+                    {% for player in players %}
+                        {% set pts = (count * discipline.coeff)+discipline.default %}
+                        {% set count = count - 1%}
+                        {% if i < 6 %}
+
+                            <li class="brow list-group-item stylized-{{ i }} {% if discipline.finished == 1 %}cant{% endif %}" {% if discipline.finished == 0 %}draggable="true"{% endif %}>
+                                <div class="row">
+                                    <span class="col-md-2 text-center position">{{ i }}</span>
+                                    <i class="col-md-7 username">{% if discipline.finished == 1 %}
+                                            {% if discipline.format == 'TeamVSTeam' %}
+                                                {{ player.name }}
+                                            {% else %}
+                                                {{ player.Players }}
+                                            {% endif %}{% else %}{% if discipline.format == "TeamVSTeam" %}{{ player.name }}{% else %}{{ player.ppseudo }}{% endif %}{% endif %}</i>
+                                    {% if discipline.finished == 1 %}
+                                        <div class="col-md-3 text-center pts">
+                                            <div class="col-lg-12"><i>Pts</i></div>
+                                            <div class="col-lg-12">{{ pts|number_format(0) }}</div>
+                                        </div>
+                                    {% endif %}
+                                </div></li>
+                        {% else %}
+                            <li class="brow list-group-item stylized {% if discipline.finished == 1 %}cant{% endif %}" {% if discipline.finished == 0 %}draggable="true"{% endif %}><span class="col-lg-8 text-center">{{ i }}</span> <i class="col-lg-4">{% if discipline.finished == 1 %}
+                                        {% if discipline.format == 'TeamVSTeam' %}
+                                            {{ player.name }}
+                                        {% else %}
+                                            {{ player.Players }}
+                                        {% endif %}
+                                    {% else %}
+                                        {% if discipline.format == "TeamVSTeam" %}
+                                            {{ player.name }}
+                                        {% else %}
+                                            {{ player.ppseudo }}
+                                        {% endif %}
+                                    {% endif %}</i>
+                                {% if discipline.finished == 1 %}
+                                    <div class="col-lg-3 text-center pts">
+                                        <div class="col-lg-12"><i>Pts</i></div>
+                                        <div class="col-lg-12">{{ pts|number_format(0) }}</div>
+                                    </div>
+                                {% endif %}</li>
+                        {% endif %}
+                        {% set i = i + 1 %}
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('js/admin_discipline.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $("button.finish").click(function(){
+                var conf = confirm("Vous êtes sur le point de finir la discipline, une fois validé vous ne POURREZ PLUS RETOURNER EN ARRIERE, êtes-vous bien sûr ? (Le leaderboard ne sera plus changeable)");
+                if(conf === true){
+                    // 1v1/ffa : leaderboard = [ [1, "Satoshi"], [2, "Berni] ...]
+                    // teamvsteam : leaderboard = [ [1, nomDeTeam] ... ]
+                    var leaderboard = [];
+                    var rows = document.querySelectorAll('#row .brow .row');
+                    [].forEach.call(rows, function(row){
+                        leaderboard.push({
+                            position: row.childNodes[0].nextElementSibling.innerHTML,
+                            pseudo: row.childNodes[1].nextElementSibling.innerHTML
+                        })
+                    });
+                    $.ajax({
+                        url: '{{ path('app_ajax_route') }}',
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            "leaderboard" : leaderboard,
+                            "did" : {{ discipline.id }}
+                        },
+                        async: true,
+                        success: function(data){
+                            if(data.output === 'ok'){
+                                document.location.href = '{{ path('discipline_gestion', {id: discipline.id}) }}';
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}

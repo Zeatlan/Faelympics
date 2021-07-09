@@ -1,0 +1,193 @@
+{% extends "base.html.twig" %}
+
+{% block title "Faelivrin" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+{% endblock %}
+{% block body %}
+
+
+    <div class="jumbotron feednews mb-0">
+        <div class="row">
+            <div class="release">
+                <h1>?? &nbsp ?? &nbsp 2020</h1>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-6 col-10 welcome">
+                <h1>Bienvenue à </h1>
+                <h1>la 1ère édition Faelympics</h1>
+
+                <h2><span style="color:#8b1db0;">Fae</span>livrin</h2>
+
+                <div class="row">
+                    <p>Salutations à toi champion de FAE,</p>
+                    <p>bienvenue dans ces premiers jeux des <strong>Faelympics !</strong> En effet, nous avons reçu une missive d'un royaume voisin nous indiquant l'enlèvement de la princesse nalo_, fille bien aimée de sa seigneurie Zeatlan !
+                        C'est pourquoi, nous organisons des jeux inter-factions pour définir qui sera <u>LE</u> champion qui ira secourir la princesse du royaume.</p>
+                    <p>Sa seigneurie Zeatlan, premier du nom, portant un grand amour pour sa jeune fille nalo_ récompensera gracieusement la faction gagnante du tournoi ! Et chaque participants à de quoi gagner quelque chose !
+                        Dans ces jeux vous y trouverez : Du jeu vidéo, des mini-jeux, des blind-tests & énigme, et d'autres activités où chacun aura sa chance !</p>
+                    <p>Nous comptons sur toi pour prouver ta valeur au royaume et devenir le grand champion de Faelivrin pour la gloire de celui-ci mais aussi de ta faction !
+                        Sa seigneurie Zeatlan attends beaucoup de toi, et estime que ce sera le plus grand événement que pourra proposer le royaume de Faelivrin. Puissez vous porter le blason de votre faction vers la gloire et la prospérité, au plaisir de vous revoir dans les Faelympics.</p>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-lg-5 col-md-3 col-10 comingUp">
+                <h2>A venir</h2>
+
+                <div class="contain">
+                    <div class="row ml-1 d-flex">
+                        {% set i = 0 %}
+                        {% for discipline in disciplines %}
+                            <div class="col-xl-4 col-lg-6 col-12 discipline" style="background:url('{{ discipline.banner }}') center no-repeat; background-size:cover;" idDiscipline="{{ discipline.id }}">
+                                <div class="col-12 title">{{ discipline.game }}</div>
+                                <div class="row info">
+                                    <span class="col-6">{{ discipline.startdate|date('d/m/y') }}</span>
+                                    <span class="col-6">{{ discipline.organisateur }}</span>
+                                </div>
+                            </div>
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="banner col-lg-12 mt-lg-5 col-md-10 col-10"><h2>Faelympics : Très prochainement</h2></div>
+            </div>
+            <div class="banner small mt-3 ml-auto mr-auto col-11"><h2>Faelympics : Très prochainement</h2></div>
+        </div>
+
+        <div class="row extern align-items-center">
+            <div class="col-xl-5 col-lg-6 col-md-5 col-9">
+                <div class="spot"><a href="https://discord.gg/QkgqjkE"><img src="https://cdn0.iconfinder.com/data/icons/free-social-media-set/24/discord-512.png" alt="discord" width="64" height="64"></a></div>
+                <div class="spot"><img src="{{ asset('img/faelivrin.png') }}" alt="faelivrin"></div>
+            </div>
+
+            <div class="col-lg-1 col-md-1 scroll">
+                <a href="#down"><span></span>Organisateurs</a>
+            </div>
+
+            <div class="col-lg-5 col-md-5 col-3 ml-auto">
+                <div class="spot"><a href="#"><img src="https://vignette.wikia.nocookie.net/swansong/images/2/26/Twitch_logo.svg" alt="twitch" width="64" height="64"></a></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="jumbotron organisation mb-0" id="staff">
+        <div class="row">
+            <div class="col-lg-6 m-auto text-center">
+                <h1>Les organisateurs</h1>
+                <p>Les organisateurs sont là pour veiller au bon déroulement des divers événements, si vous rencontrez un problème dans un certain événement, merci de contacter l'organisateur affilié à cet événement. <em>Ces organisateurs ne sont évidemment pas rémunérés, ils travaillent bénévolement pour leur seigneurie.</em></p>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-xl-6 col-lg-8 col-md-10 col-12 m-auto">
+                <div class="row d-flex ">
+
+                    <!-- left side -->
+                    <div class="col-lg-6 col-md-6 col-6 staff">
+                        <div class="row">
+                            <img src="{{ asset('img/avatar/zeatlan.jpg') }}" alt="Zeatlan" width="64" height="64">
+                            <div class="infobox col-lg-9 col-md-9 col-12">
+                                <strong>Zeatlan<i>#0727</i></strong>
+                                <em>Sa seigneurie</em>
+                                <span>Tâche : Organisation globale - Interface web</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <img src="{{ asset('img/avatar/berni.jpg') }}" alt="Berni" width="64" height="64">
+                            <div class="infobox col-lg-9 col-md-9 col-12">
+                                <strong>Berni<i>#8538</i></strong>
+                                <em>Organisateur OSU!</em>
+                                <span>Tâche : Gérer l'événement Osu!</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <img src="{{ asset('img/avatar/papayapa.jpg') }}" alt="Papayapa" width="64" height="64">
+                            <div class="infobox col-lg-9 col-md-9 col-12">
+                                <strong>Papayapa<i>#8060</i></strong>
+                                <em>Organisateur Hearthstone!</em>
+                                <span>Tâche : Gestion des mini-jeux et Hearthstone</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <img src="{{ asset('img/avatar/cyriod.jpg') }}" alt="Cyriod" width="64" height="64">
+                            <div class="infobox col-lg-9 col-md-9 col-12">
+                                <strong>Cyriod<i>#2464</i></strong>
+                                <em>Organisateur Legend of Runeterra! & Streameur</em>
+                                <span>Tâche : Mini-jeux & LoR</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <img src="{{ asset('img/avatar/zelphix.jpg') }}" alt="Cyriod" width="64" height="64">
+                            <div class="infobox col-lg-9 col-md-9 col-12">
+                                <strong>ZelphiX<i>#1781</i></strong>
+                                <em>Organisateur Minecraft & Streameur</em>
+                                <span>Tâche : Minecraft & streaming</span>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <!-- right side -->
+
+                    <div class="col-lg-6 col-md-6 col-6 staff text-right">
+                        <div class="row">
+                            <div class="infobox col-lg-9 col-md-9 col-12">
+                                <strong>nalo_<i>#3437</i></strong>
+                                <em>Princesse</em>
+                                <span>Tâche : Bot - Rôle de princesse</span>
+                            </div>
+                            <img src="{{ asset('img/avatar/nalo.jpg') }}" alt="cxte nalo_" width="64" height="64">
+                        </div>
+
+                        <div class="row">
+                            <div class="infobox col-lg-9 col-md-9 col-12">
+                                <strong>Byakuran<i>#3038</i></strong>
+                                <em>Organisateur jeux divers</em>
+                                <span>Tâche : TM / CS et Dota + gestion des blind test</span>
+                            </div>
+                            <img src="{{ asset('img/avatar/byakuran.jpg') }}" alt="Byakuran" width="64" height="64">
+                        </div>
+
+                        <div class="row">
+                            <div class="infobox col-lg-9 col-md-9 col-12">
+                                <strong>Shinori<i>#1379</i></strong>
+                                <em>Organisatrice & streameuse </em>
+                                <span>Tâche : Blinds tests & events artistiques</span>
+                            </div>
+                            <img src="{{ asset('img/avatar/shinori.jpg') }}" alt="Shiloli" width="64" height="64">
+                        </div>
+
+                        <div class="row">
+                            <div class="infobox col-lg-9 col-md-9 col-12">
+                                <strong>CXLP<i>#7441</i></strong>
+                                <em>Organisateur League of Legends & streameur </em>
+                                <span>Tâche : League of Legends et mini-jeux</span>
+                            </div>
+                            <img src="{{ asset('img/avatar/cxlp.jpg') }}" alt="Maitre Lee Pang" width="64" height="64">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row text-center">
+
+                    <div class="col-lg-10 col-md-10 scrolltop text-center">
+                        <a href="#top"><span></span>Aller en haut</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{{ asset('js/index.js') }}"></script>
+
+{% endblock %}

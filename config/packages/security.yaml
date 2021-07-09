@@ -1,0 +1,50 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+    providers:
+        my_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+
+            form_login:
+                login_path: login
+                check_path: login
+                username_parameter: username
+                password_parameter: password
+                default_target_path: /admin/dashboard
+                provider: my_provider
+
+            logout:
+                path: /logout
+                target: /admin/login
+            guard:
+                authenticators:
+                    - App\Security\LoginAdminAuthenticator
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    role_hierarchy:
+        ROLE_SUPER_ADMIN: [ROLE_SUPER_ADMIN, ROLE_ADMIN]
+        ROLE_ADMIN: ROLE_ADMIN
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+      - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+      - { path: ^/admin/dashboard, roles: ROLE_ADMIN }
+      - { path: ^/admin/discipline, roles: ROLE_ADMIN }
+      - { path: ^/admin/player, roles: ROLE_SUPER_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }

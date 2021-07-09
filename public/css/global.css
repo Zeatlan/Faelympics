@@ -1,0 +1,187 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: #141622;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.footer {
+    background-color: #131313;
+    position:relative;
+    right: 0;
+    left: 0;
+    bottom: 3rem;
+    padding: 0.6rem;
+    transform:translateY(100%);
+    color: #cacaca;
+}
+
+nav.menu {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 999;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 1em;
+}
+
+nav.menu .navbar-brand {
+    float: left;
+    margin-left: 2em;
+}
+
+nav.menu #navbarNav {
+    font-size: 2vh;
+}
+
+nav.menu .navbar-nav .active>.nav-link {
+    color: #23c2ff;
+    border-bottom: 2px solid #23c2ff;
+    padding-bottom: 1px;
+}
+
+nav.menu .navbar-nav .nav-item {
+    margin-left: 1em;
+    letter-spacing: 1px;
+}
+
+.navbar.scrolled {
+    background-color: #000000 !important;
+    padding-top: 0.5em;
+    transition: background-color 200ms linear;
+    transition: padding-top 200ms linear;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+    border-bottom: 5px solid black;
+}
+
+/******* SCROLL TOP ********/
+.scrolltop a {
+    position: absolute;
+    z-index: 2;
+    -webkit-transform: translate(5%, 200%);
+    transform: translate(5%, 200%);
+    color: #fff;
+    font : normal 400 20px/1 'Josefin Sans', sans-serif;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: opacity .3s;
+    padding-top: 20px;
+
+}
+.scrolltop a:hover {
+    opacity: .7;
+    color: #699fff;
+}
+.scrolltop a span {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-right: 1px solid #fff;
+    border-top: 1px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+
+
+.scroll a {
+    position: absolute;
+    z-index: 2;
+    display: inline-block;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #fff;
+    font : normal 400 20px/1 'Josefin Sans', sans-serif;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: opacity .3s;
+    padding-top: 40px;
+
+}
+.scroll a:hover {
+    opacity: .7;
+    color: #699fff;
+}
+.scroll a span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 900px) {
+    .scrolltop a {
+        -webkit-transform: translate(0%, 150%);
+        transform: translate(0%, 150%);
+        padding-top: 10px;
+    }
+    .scrolltop a {
+        padding-top: 15px;
+    }
+
+    .organisation {
+        padding-bottom: 128px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .scrolltop {
+        display: none;
+    }
+    .footer {
+        text-align: center;
+    }
+
+    #container .leaderboard .swap {
+        margin-top: 0!important;
+    }
+    .scroll {
+        display: none;
+    }
+
+    .navbar {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav.menu .navbar-nav .nav-item {
+        margin-left: 0;
+        letter-spacing: 1px;
+    }
+
+    nav.menu .navbar-nav .active>.nav-link {
+        background-color: #23c2ff;
+        color: #fff;
+        padding-bottom: 1px;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        margin: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+}

@@ -1,0 +1,48 @@
+{% extends "admin/pages/skeleton.html.twig" %}
+
+{% block title "Tableau de bord" %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Note</strong> Flemme de faire une belle interface, vous m'excuserez.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="row boiz">
+        <div class="col-lg-3 mx-auto">
+            <h3>{{ comingSoon }} épreuve{% if comingSoon > 1 %}s{% endif %}</h3>
+            <span>A prévoir</span>
+        </div>
+        <div class="col-lg-3 mx-auto">
+            <h3>{{ inProgress }} épreuve{% if inProgress > 1 %}s{% endif %}</h3>
+            <span>En cours</span>
+        </div>
+        <div class="col-lg-3 mx-auto">
+            <h3>{{ finished }} épreuve{% if finished > 1 %}s{% endif %}</h3>
+            <span>Terminé</span>
+        </div>
+    </div>
+
+    <div class="row event">
+        <h2>Evenement à venir</h2>
+        {% for discipline in disciplines %}
+        <div class="col-lg-3 col-md-5 col-sm-6 ml-5 discipline">
+            <div class="row">
+                <div class="col-12 text-center" style="background:linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url('{{ discipline.banner }}') center no-repeat;height:100px;background-size:cover;">
+                    <h1>{{ discipline.game }}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 sticky text-center p-1">{{ discipline.startDate|date('d/m/Y') }}</div>
+                <div class="col-6 bg-dark text-center p-1">{{ discipline.organisateur }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,315 @@
+#container {
+    margin: 0;
+    padding: 0;
+    max-height: 100vh;
+}
+
+#container .listdiscipline {
+    background-color: #222538;
+    min-height: 100vh;
+    color: #f1f2f3;
+    padding-bottom: 1em;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+    ), url('../img/bg.jpg') center no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+
+#container .listdiscipline .listing .discipline {
+    margin-top: 10px;
+}
+
+#container .listdiscipline .listing .discipline a {
+    color:#FFFFFF;
+}
+
+#container .listdiscipline .listing .discipline:hover .col-lg-12,
+#container .listdiscipline .listing .discipline:hover .col-lg-5{
+    transition: 0.3s linear;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#container .listdiscipline .listing .discipline a {
+    text-decoration: none;
+}
+
+#container .listdiscipline .listing .discipline .col-lg-12 {
+    overflow:hidden;
+}
+
+#container .listdiscipline .listing h1 {
+    line-height: 100px;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 2px black;
+}
+
+#container .listdiscipline .listing .status.progress,
+#container .listdiscipline .listing .status.finished,
+#container .listdiscipline .listing .status.comingsoon {
+    opacity: 0.8;
+}
+
+#container .listdiscipline .listing .status.progress {
+    background-color: #758027;
+    font-size: 19px;
+    position: absolute;
+    left: -70px;
+    bottom: 40px;
+    width: 200px;
+    height: 40px;
+    line-height: 35px;
+    transform: rotate(-35deg);
+    border: 3px solid #fff;
+    padding-left: 4em;
+}
+
+#container .listdiscipline .listing .status.finished {
+    background-color: #802f28;
+    font-size: 19px;
+    position: absolute;
+    left: -70px;
+    bottom: 40px;
+    width: 200px;
+    height: 40px;
+    line-height: 35px;
+    transform: rotate(-35deg);
+    border: 3px solid #fff;
+    padding-left: 2em;
+}
+
+#container .listdiscipline .listing .status.comingsoon {
+    background-color: #488043;
+    font-size: 19px;
+    position: absolute;
+    left: -70px;
+    bottom: 40px;
+    width: 200px;
+    height: 40px;
+    line-height: 35px;
+    transform: rotate(-35deg);
+    border: 3px solid #fff;
+    padding-left: 2em;
+}
+
+#container .listdiscipline .listing .info {
+    margin-left: 0em;
+    margin-right: 0em;
+}
+
+#container .listdiscipline .listing .info div {
+
+    background: linear-gradient(to right, #5f66a3 50%, #343a40 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .5s ease-out;
+}
+
+
+#container .listdiscipline .listing .discipline:hover .info div {
+
+    background-position: left bottom;
+}
+
+#container .listdiscipline .listing .stream {
+    position: absolute;
+    background-color: #ff3c3a;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    right: 10px;
+    top: 10px;
+}
+
+#container .listdiscipline .listing .stream:after {
+    content: "Live";
+    position: absolute;
+    left: 3px;
+    top: 4px;
+    font-size: 13px;
+}
+
+/**************************************************************/
+/***********************EPREUVE********************************/
+/**************************************************************/
+
+#container .listdiscipline .suppanel {
+    margin-top: 8vh;
+}
+
+#container .listdiscipline .panel {
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid #aeaa57;
+}
+
+#container .listdiscipline .panel .header {
+    margin-left: 1em;
+    height: 75px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+#container .listdiscipline .panel .header h1 {
+    margin: 0;
+    line-height: 75px;
+}
+
+#container .listdiscipline .panel .organisateur img {
+    height: 75px;
+    display: inline-block;
+}
+
+#container .listdiscipline .panel .organisateur div {
+    display: inline-block;
+}
+
+#container .listdiscipline .panel .organisateur div h4 {
+    margin: 0;
+    color: #5a70ff;
+}
+
+#container .listdiscipline .panel .countdown{
+    border-top: 2px solid rgba(255,255,255,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    margin: 10px auto 10px auto;
+    text-align: center;
+    color: #9fc176;
+    background: rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#container .listdiscipline .tabs button {
+    display: block;
+    background-color: rgba(45, 45, 45, 0.8);
+    color: #f1f2f3;
+    padding: 22px 16px;
+    width: 75%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+#container .listdiscipline .tabs button.tablinks:hover {
+    background-color: #a1a1a1;
+    width: 100%;
+}
+
+/* Create an active/current "tab button" class */
+#container .listdiscipline .tabs button.active {
+    background-color: #a1a1a1;
+    width: 100%;
+}
+
+#container .listdiscipline .tabs button.denied {
+    background-color: #6b6b6b;
+    cursor: not-allowed;
+}
+
+#container .listdiscipline .tabs button.denied:hover {
+    background-color: #6b6b6b;
+    width: 75%;
+}
+
+/* Tooltip container */
+.tablinks {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+@media screen and (max-width: 1500px){
+    #container .listdiscipline .panel .organisateur {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+    #container .listdiscipline .suppanel {
+        flex: 0 0 75%;
+        max-width: 75%;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    #container .listdiscipline .panel {
+    }
+
+    #container .listdiscipline .panel .organisateur {
+        flex: 0 0 35%;
+        max-width: 35%;
+    }
+    #container .listdiscipline .suppanel {
+        flex: 0 0 85%;
+        max-width: 85%;
+    }
+    .tabs {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 900px){
+    #container .listdiscipline .panel .organisateur {
+        flex: 0 0 38%;
+        max-width: 38%;
+    }
+    #container .listdiscipline .tabs button {
+        display: inline-block;
+        width: 30%;
+    }
+    #container .listdiscipline .tabs button:last-child {
+        margin-left: 13vh;
+    }
+
+    /* Change background color of buttons on hover */
+    #container .listdiscipline .tabs button.tablinks:hover {
+        width: 50%;
+    }
+
+    /* Create an active/current "tab button" class */
+    #container .listdiscipline .tabs button.active {
+        width: 50%;
+    }
+
+    #container .listdiscipline .tabs button.denied:hover {
+        width: 30%;
+    }
+    #container .listdiscipline .panel .header h1 {
+        line-height: 45px;
+        font-size: 1.7rem;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    #container .listdiscipline .tabs button:last-child {
+        margin-left: 8.3vh;
+    }
+
+    #container .listdiscipline .suppanel {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #container .listdiscipline .panel .header {
+        height: 100px;
+    }
+    #container .listdiscipline .panel .header h1 {
+        padding: 20px;
+        line-height: 25px;
+        font-size: 1.7rem;
+    }
+    #container .listdiscipline .panel .organisateur img {
+        margin: auto;
+        display: block;
+    }
+    #container .listdiscipline .panel .organisateur {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+}

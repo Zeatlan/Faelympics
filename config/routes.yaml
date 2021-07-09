@@ -1,0 +1,65 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+home:
+  path: /
+  controller: App\Controller\HomeController::index
+leaderboard:
+  path: /leaderboard
+  controller: App\Controller\LeaderboardController::index
+discipline:
+  path: /discipline
+  controller: App\Controller\DisciplineController::index
+epreuve:
+  path: /discipline/{id}
+  controller: App\Controller\DisciplineController::showEpreuve
+  requirements:
+    id: '\d+'
+contact:
+  path: /contact
+  controller: App\Controller\ContactController::index
+
+
+admin:
+  path: /admin
+  controller: App\Controller\AdminController::urlRedirectAction
+  defaults:
+    path: /admin/connexion
+    permanent: true
+connexion:
+  path: /admin/connexion
+  controller: App\Controller\AdminController::showConnexion
+dashboard:
+  path: /admin/dashboard
+  controller: App\Controller\AdminController::showDashboard
+disciplinelist:
+  path: /admin/discipline
+  controller: App\Controller\DisciplineController::new
+discipline_edit:
+  path: /admin/discipline/{id}/edit
+  controller: App\Controller\DisciplineController::edit
+  requirements:
+    id: '\d+'
+discipline_gestion:
+  path: /admin/discipline/{id}/gestion
+  controller: App\Controller\DisciplineController::gestion
+  requirements:
+    id: '\d+'
+
+player_list:
+  path: /admin/player
+  controller: App\Controller\PlayerController::index
+player_edit:
+  path: /admin/player/{id}/edit
+  controller: App\Controller\PlayerController::edit
+  requirements:
+    id: '\d+'
+player_delete:
+  path: /admin/player/{id}/delete
+  controller: App\Controller\PlayerController::delete
+  requirements:
+    id: '\d+'
+
+app_ajax_route:
+  path: /admin/leaderboard_ajax
+  controller: App\Controller\DisciplineController::ajaxRequest

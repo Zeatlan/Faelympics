@@ -1,0 +1,32 @@
+{% extends "admin/pages/skeleton.html.twig" %}
+
+{% block title "Edition - " ~ player.ppseudo %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <h2>Edition :: {{ player.ppseudo }}</h2>
+        </div>
+        {{ form_start(edit_player) }}
+        <div class="col-lg-3">
+            {{ form_row(edit_player.p_pseudo) }}
+        </div>
+        <div class="col-lg-3">
+            {{ form_row(edit_player.p_faction) }}
+        </div>
+        <div class="col-lg-3">
+            {{ form_row(edit_player.p_tag) }}
+        </div>
+        <div class="col-lg-3">
+            {{ form_row(edit_player.p_pts) }}
+        </div>
+        <div class="col-lg-3 mt-4">
+            {{ form_row(edit_player.submit, {'label': 'Editer le membre'}) }}
+        </div>
+        {{ form_end(edit_player) }}
+    </div>
+{% endblock %}

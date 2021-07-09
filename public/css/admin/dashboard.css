@@ -1,0 +1,47 @@
+.boiz {
+    text-align: center;
+}
+
+.boiz span {
+    display:block;
+}
+
+.boiz .col-lg-3 {
+    padding: 1em;
+    border: 1px solid black;
+    margin-right: 15px;
+}
+
+.boiz .col-lg-3:first-child {
+    background-color: #229140;
+}
+
+.boiz .col-lg-3:nth-child(2) {
+    background-color: #89902c;
+}
+
+.boiz .col-lg-3:nth-child(3) {
+    background-color: #615553;
+}
+
+.event {
+    margin-top: 2em;
+}
+
+.event h2 {
+    width: 100%;
+    border-bottom: 2px solid #9c9c9c;
+}
+
+.event .discipline {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.event .discipline .col-lg-12 {
+    overflow:hidden;
+}
+
+.event .discipline .sticky {
+    background-color: #2462ff;
+}

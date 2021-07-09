@@ -1,0 +1,161 @@
+.row h2 {
+    width: 100%;
+    border-bottom: 2px solid #9c9c9c;
+}
+
+.row .preview {
+    text-align: center;
+    height: 100px;
+    width: 250px;
+}
+
+.row .preview h1 {
+    line-height: 100px;
+    font-size: 2rem;
+
+}
+
+.row .previewtable {
+    color: #dadada;
+    background-color: rgba(0,0,0,0.2)
+}
+
+.row .previewtable th, .row .previewtable td {
+    border-top: none
+}
+
+.row a {
+    color: #46a6ff;
+}
+
+.row a:hover {
+    color: #6bcaff;
+}
+
+.discipline h1 {
+
+    font-size: 2rem;
+}
+.discipline .action {
+    margin-left: 0.15em;
+    margin-right: 0.1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.discipline .action .col-3 { /* 82 131 255 */
+    background-color: #5283ff;
+    transition: max-width 0.5s;
+}
+.discipline .action .col-3:first-of-type:hover {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.discipline .action .col-3:last-of-type:hover {
+    position: absolute;
+    right: 0;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.discipline .action .col-3:last-of-type:hover ~ .col-3:first-of-type{
+    display: none;
+    float: left;
+}
+.discipline .action .col-3:last-of-type:hover ~ .col-6 {
+    display: none;
+    float: left;
+}
+
+.discipline .action .col-3:first-of-type:hover ~ .col-3:last-of-type{
+    display: none;
+    float: left;
+}
+.discipline .action .col-3:first-of-type:hover ~ .col-6 {
+    display: none;
+    float: left;
+}
+.discipline .action .col-3 a {
+    color: #bddfff;
+}
+.discipline .action .col-6 {
+     background-color: #151213;
+ }
+
+.tox-notification {display: none !important;}
+
+[draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+}
+
+.row.header {
+    margin-left: 0.8vh!important;
+}
+
+.brow {
+    cursor: move;
+    line-height: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+.brow.over {
+    border: 2px dashed #fff;
+}
+.stylized {
+    background-color: #373b47;
+}
+.stylized-1 {
+    background-color: #e9715e;
+}
+.stylized-2 {
+    background-color: #d06056;
+}
+.stylized-3 {
+    background-color: #c75951;
+}
+.stylized-4 {
+    background-color: #bd534e;
+}
+.stylized-5 {
+    background-color: #b54c4d;
+}
+
+.brow span {
+    line-height: 50px;
+    font-size: 19px;
+    background-color: white;
+    border-radius: 100%;
+    color: #404040;
+}
+
+.brow.cant {
+    cursor: not-allowed;
+}
+
+.brow .pts .col-lg-12:first-child {
+    line-height: 30px;
+}
+
+.brow .pts .col-lg-12:nth-child(2){
+    line-height: 10px;
+    font-weight: 700;
+    font-size: 1.8vh;
+}
+
+.brow .pts i {
+    font-size: 1.4vh;
+}
+
+button.finish {
+    margin-left: 7vh;
+}
+
+@media screen and (max-width: 1100px){
+    .discipline {
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,56 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title "Page introuvable" %}
+
+
+{% block body %}
+
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            background-color: #141622;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9) ), url('{{ asset('img/bg2.jpg') }}');
+            background-position:center top;
+
+        }
+        .row {
+            min-height: 180px;
+            margin-top: 25vh;
+            margin-bottom: 51.9vh;
+            position: relative;
+        }
+
+        .row .col-8 {
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgba(0, 0, 0, 0.6)
+        }
+
+        .text-center {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+    </style>
+    <div class="row">
+        <div class="col-8">
+            <h1>Uh oh...</h1>
+
+            <p>Il semblerait que cette page n'ai pas pu être trouvée, êtes-vous sûr d'avoir tapé la bonne url ?</p>
+            <p><a href="{{ path('home') }}">Cliquez ici pour revenir à la page d'accueil !</a></p>
+
+            <div class="text-center">
+                <img src="{{ asset('img/awawa.gif') }}" alt="Awawa, wrong path" width="254">
+            </div>
+        </div>
+    </div>
+{% endblock %}

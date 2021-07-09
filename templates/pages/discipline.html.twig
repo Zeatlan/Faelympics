@@ -1,0 +1,53 @@
+{% extends "base.html.twig" %}
+
+{% block title "Faelivrin - Disciplines" %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="css/discipline.css">
+{% endblock %}
+
+{% block body %}
+        <div class="jumbotron listdiscipline">
+            <div class="col-xl-12 mt-5 listing">
+                <div class="row">
+                    {% for discipline in disciplines %}
+                        {% set time = "" %}
+                        {% if discipline.finished == 1 %}
+                        {% set time = "Terminé" %}
+                        {% set class = "finished" %}
+                        {% else %}
+                            {% if discipline.startDate >= now %}
+                                {% set time = "Bientôt" %}
+                                {% set class = "comingsoon" %}
+                            {% elseif discipline.startDate < now %}
+                                {% set time = "En cours" %}
+                                {% set class = "progress" %}
+                            {% endif %}
+                        {% endif %}
+
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 discipline">
+                        <a href="{{ path("epreuve", {id: discipline.id}) }}">
+                            <div class="col-lg-12 text-center" style="background:linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url('{{ discipline.banner }}') center no-repeat;height:100px;background-size:cover;">
+                                {% if discipline.getstreamed == 1 %}
+                                    <div class="stream">&nbsp</div>
+                                {% endif %}
+                                <div class="status {{ class }}">{{ time }}</div><h1>{{ discipline.game }}</h1>
+                            </div>
+                            <div class="row info">
+                                <div class="col-12 d-flex">
+                                <span class="col-6 text-center p-1">
+                                    {{ discipline.startDate|date('d/m/Y') }}
+                                </span>
+                                <span class="col-6 text-center p-1">
+                                    {{ discipline.organisateur }}
+                                </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+{% endblock %}

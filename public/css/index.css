@@ -1,0 +1,385 @@
+#container {
+    margin: 0;
+}
+
+#container .feednews {
+    background-color: #222538;
+    min-height: 100vh;
+    color: #f1f2f3;
+    padding-bottom: 1em;
+    background: linear-gradient(
+                    rgba(0, 0, 0, 0.6),
+                    rgba(0, 0, 0, 0.6)
+            ), url('../img/bg.jpg') center no-repeat;
+    background-size: cover;
+}
+
+#container .feednews {
+    position: relative;
+}
+
+#container .feednews .welcome {
+    margin-top: 15vh;
+    margin-left: 15vh;
+}
+
+#container .feednews .welcome h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 4vh;
+    letter-spacing: 4px;
+}
+
+#container .feednews .welcome h2 {
+    margin-top: 2vh;
+    width: 97%;
+    text-align: right;
+    letter-spacing: 2px;
+    font-size: 25px;
+    color: #c1c1c1;
+}
+
+#container .feednews .welcome p {
+    text-align: justify;
+}
+
+#container .feednews .release {
+    float: left;
+    margin-top: 10vh;
+    width: 0;
+    word-wrap: break-word;
+}
+
+#container .feednews .release h1 {
+    font-size: 20px;
+    line-height: 1.5em;
+}
+
+#container .feednews .comingUp {
+    margin-left: 17vh;
+    margin-top: 15vh;
+    width: 30%;
+}
+
+#container .feednews .comingUp h2 {
+    border-bottom: 2px solid white;
+    padding-bottom: 0;
+}
+
+#container .feednews .discipline {
+    background-color: rgba(52,58,64,0.5)!important;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#container .feednews .comingUp .discipline .title {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgba(13, 13, 13, 0.7);
+    padding: 0.5em;
+    transition: all .5s ease-out;
+}
+
+#container .feednews .comingUp .discipline .info {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    width: 100%;
+
+    background: linear-gradient(to right, #6F71D7 50%, #343a40 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .5s ease-out;
+}
+
+#container .feednews .comingUp .discipline:hover .info {
+     background-position: left bottom;
+}
+
+#container .feednews .comingUp .discipline:hover .title {
+    background-color: rgba(111, 113, 215, 0.71);
+}
+
+#container .feednews .d-flex {
+    width: 99.5%;
+}
+
+#container .feednews .discipline {
+    height: 200px;
+}
+
+#container .feednews .discipline .card-body,
+#container .feednews .discipline .card-header{
+    text-align: center;
+}
+
+#container .feednews .discipline .card-header {
+    padding: 3px;
+}
+#container .feednews .discipline .card-header h4 {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+#container .feednews .discipline .card-footer {
+    font-size: 15px;
+    line-height: 15px;
+}
+
+#container .feednews .banner.small {
+    display: none;
+}
+
+#container .feednews .banner {
+    height: 220px;
+    border: 1px solid black;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+    ), url('../img/banner.jpg') center no-repeat;
+    background-size: cover;
+}
+
+#container .feednews .banner h2 {
+    border: none;
+    text-align: center;
+    line-height: 220px;
+}
+
+
+
+
+#container .extern {
+    margin-top: 12vh;
+}
+
+#container .spot {
+    display: inline-block;
+    margin-left: 6em;
+}
+
+#container .col-lg-5:last-child .spot:nth-child(1){
+    margin-left: 13em;
+}
+
+
+ /**************************************************/
+ /**                ORGANISATEURS                 **/
+ /**************************************************/
+
+#container .organisation {
+    background-color: #222538;
+    min-height: 95vh;
+    color: #f1f2f3;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+    ), url('../img/bg3.jpeg') center no-repeat;
+    background-size: cover;
+}
+
+.organisation .staff {
+    margin-top: 1em;
+}
+
+.organisation .staff:first-child {
+    border-right: 1px solid white;
+}
+
+.organisation .staff .row {
+    margin-top: 1rem;
+}
+
+.organisation .staff strong {
+    color: #ff696d;
+    display: block;
+}
+
+.organisation .staff:first-child .row:first-child strong {
+    color: #873eff;
+}
+
+.organisation .staff:nth-child(2) .row:first-child strong {
+    color: #f09bff;
+}
+
+.organisation .staff strong i {
+    font-size: 10px;
+    color: #9d9d9d;
+}
+
+.organisation .staff em {
+    display: block;
+}
+
+.organisation .staff .infobox:nth-child(2n) {
+}
+
+@media screen and (max-width: 1536px){
+    #container .spot {
+        display: inline-block;
+        margin-left: 3em;
+    }
+}
+
+@media screen and (max-width: 1310px) {
+
+    #container .feednews .comingUp  {
+        margin-left: 10vh;
+    }
+    .feednews {
+         padding: 2rem 2rem;
+     }
+    #container .feednews .banner h2 {
+        padding-top: 80px;
+        line-height: 30px;
+    }
+    #container .spot {
+        display: inline-block;
+        margin-left: 0em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #container .feednews .welcome {
+        margin-top: 5vh;
+        margin-left: 5vh;
+    }
+    #container .feednews .comingUp {
+        margin-top: 5vh;
+        width: 30%;
+    }
+    #container .feednews .banner.small {
+        display: block;
+        height: 100px;
+    }
+    #container .feednews .banner {
+        display: none;
+    }
+    #container .feednews .banner h2 {
+        padding-top: 30px;
+        line-height: 30px;
+    }
+
+    #container .extern {
+        margin-top: 5vh;
+    }
+
+    #container .spot a img {
+        width: 48px;
+        height: 48px;
+    }
+    #container .spot img {
+        width: 200px;
+    }
+    #container .organisation {
+        min-height: 100vh;
+    }
+}
+
+@media screen and (max-width: 766px) {
+
+    #container .feednews .release {
+        margin-top: 5vh;
+    }
+    #container .feednews .welcome {
+        margin-top: 5vh;
+    }
+    #container .feednews .comingUp {
+        margin-left: 5vh;
+        margin-top: 0vh;
+    }
+    #container .feednews .comingUp .discipline {
+        margin-top: 2vh;
+    }
+
+    #container .spot a img {
+        width: 32px;
+        height: 32px;
+    }
+
+    #container .scroll {
+        display: none;
+    }
+    #container .spot img {
+        margin-left: 2em;
+        width: 160px;
+    }
+    #container .col-lg-5:last-child{
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-left:0
+    }
+    #container .col-lg-5:last-child .spot:nth-child(1) {
+         margin-left: 0em;
+     }
+    #container .staff,
+    #container .staff.text-right{
+        text-align: center!important;
+
+    }
+
+    #container .staff img {
+        margin: auto;
+        width: 92px;
+        height: 92px;
+    }
+
+    #container .staff.text-right img{
+        padding-top:0;
+        margin-top: 0
+    }
+    #container .staff .row {
+        border: 1px solid white;
+        height: 250px;
+    }
+    #container .feednews .banner.small {
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 380px) {
+    .release {
+        display: none;
+    }
+    #container .welcome {
+        margin-left: 0!important;
+        max-width: 100%!important;
+    }
+    #container .comingUp {
+        margin-left: 0!important;
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    #container .comingUp .contain {
+        max-width: 100%!important;
+    }
+    #container .feednews .banner h2 {
+        font-size: 25px;
+        padding-top: 20px;
+    }
+
+    #container .spot {
+        padding: 0!important;
+        margin: 0!important;
+    }
+    #container .spot a img {
+        display: none;
+    }
+    #container .spot img {
+        width: 200px;
+    }
+    #container .col-lg-5:last-child .spot:nth-child(1) img{
+        display:none;
+    }
+
+    #container .staff img {
+        margin: auto;
+        width: 64px;
+        height: 64px;
+    }
+}

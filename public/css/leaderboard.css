@@ -1,0 +1,185 @@
+
+#container .leaderboard {
+    background-color: #222538;
+    min-height: 100vh;
+    color: #f1f2f3;
+    padding-bottom: 1em;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+    ), url('../img/bg.jpg') center no-repeat;
+    background-size: cover;
+    padding-top: 12vh;
+    margin: 0;
+}
+
+#container .leaderboard h1.text-center {
+    font-size: 4em;
+    margin-top: 0;
+}
+
+#container .leaderboard .box {
+    padding: 0;
+}
+
+#container .leaderboard .box.gold {
+    border: 2px solid #ffa031;
+    -webkit-box-shadow: 0px 0px 15px 5px rgba(169, 130, 14, 0.75);
+    -moz-box-shadow: 0px 0px 15px 5px rgba(169, 130, 14, 0.75);
+    box-shadow: 0px 0px 15px 5px rgba(169, 130, 14, 0.75);
+}
+#container .leaderboard .box.silver {
+    border: 2px solid #6d30a6;
+    -webkit-box-shadow: 0px 0px 15px 5px rgba(69, 18, 95, 0.75);
+    -moz-box-shadow: 0px 0px 15px 5px rgba(69, 18, 95, 0.75);
+    box-shadow: 0px 0px 15px 5px rgba(69, 18, 95, 0.75);
+}
+
+#container .leaderboard .box.bronze {
+    border: 2px solid #4c94a6;
+    -webkit-box-shadow: 0px 0px 15px 5px rgba(0, 94, 125, 0.75);
+    -moz-box-shadow: 0px 0px 15px 5px rgba(0, 94, 125, 0.75);
+    box-shadow: 0px 0px 15px 5px rgba(0, 94, 125, 0.75);
+}
+
+#container .leaderboard .box table tbody {
+    background-color: #2f3341;
+}
+
+#container .leaderboard .faction {
+    height: 150px;
+}
+
+#container .leaderboard .faction h1 {
+    margin: 0;
+    line-height: 45px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+#container .leaderboard .faction h2 {
+    margin: 0;
+    text-align: center;
+    color: #c1bdcf;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#container .leaderboard .infomedal {
+    background-color: #2f3341!important;
+}
+
+#container .leaderboard .infomedal div span,
+img{
+    vertical-align: middle;
+}
+
+#container .leaderboard table thead {
+    background-color: #292a2d;
+}
+
+#container .leaderboard table tbody tr.inactive{
+    background-color: rgba(47, 51, 65, 0.5);
+}
+
+#container .leaderboard .swap {
+    margin-top: 15vh;
+}
+
+
+#container .leaderboardGlobal {
+    margin: 0;
+    background-color: #222538;
+    min-height: 90vh;
+    color: #f1f2f3;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+    ), url('../img/bg3.jpeg') center no-repeat;
+    background-size: cover;
+}
+
+#container .leaderboardGlobal table thead {
+    background-color: #292a2d;
+}
+
+#container .leaderboardGlobal table tbody {
+    background-color: #2f3341;
+}
+
+#container .leaderboardGlobal table tbody td,
+#container .leaderboardGlobal table tbody th[scope="row"]{
+    vertical-align: middle;
+}
+
+#container .leaderboardGlobal .navleader {
+    margin-top: 2em;
+}
+
+#container .leaderboardGlobal .navleader li a{
+    background: #2f3341;
+    color: #dadada;
+    border: 1px solid black;
+}
+
+#container .leaderboardGlobal .navleader li.active span{
+    background-color: #24b7b7 !important;
+    border-color: #7d7683 !important;
+}
+
+#container .leaderboardGlobal .navleader li.disabled span {
+    background-color: rgba(85, 85, 85, 0.5);
+    border-color: rgba(85, 85, 85, 0.8);
+}
+
+#container .leaderboardGlobal h1 {
+    font-size: 4em;
+}
+
+@media screen and (max-width: 1440px){
+
+    #container .leaderboard .swap {
+        margin-bottom: 5vh;
+    }
+
+    #container .leaderboard .swap .scroll {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+
+
+@media screen and (max-width: 1100px) {
+    #container .leaderboard .swap .scroll {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+    .scrolltop a {
+        -webkit-transform: translate(50%, 10%);
+        transform: translate(-50%, 100%);
+        padding-top: 0px;
+    }
+    .scrolltop a {
+        padding-top: 15px;
+    }
+    #container .leaderboard {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #container .leaderboard .swap .scroll {
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+    #container .leaderboard .box {
+        margin-top: 5vh!important;
+    }
+    #container .leaderboardGlobal .col-lg-10 {
+        margin: 0!important;
+        padding: 0!important;
+    }
+    #container .leaderboardGlobal {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
